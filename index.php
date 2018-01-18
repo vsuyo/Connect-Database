@@ -2,7 +2,35 @@
 
 $conn = new mysqli("localhost","root","", "myosdatabase")or die (mysqli_error());
 
+$conn = 
+	if(isset($_POST['submit'])){
+
+
+
+	$uname = $_POST ['uname'];
+	$email = $_POST ['email'];
+	$pass = $_POST ['pass'];
+	$cpass = $_POST ['cpass'];
+	$uname = $_POST ['uname'];
+	$fname = $_POST ['fname'];
+	$lname = $_POST ['lname'];
+	$contact = $_POST ['contact'];
+	$address = $_POST ['address'];
+	$city = $_POST ['city'];
+	$state = $_POST ['state'];
+	$zip = $_POST ['zip'];
+	
+	 $query = $conn -> query ("INSERT INTO `registerform`(`fname`, `lname`, `contact`, `address`, `city`, `state`, `zip`, `uname`, `email`, `pass`, `cpass`) VALUES ('$fname','$lname', '$contact', '$address', '$city', '$state', '$zip', '$uname', '$email', '$pass', '$cpass')")or die (mysqli_error());
+
+	}
+
 ?>
+
+
+	
+
+
+
 
 
 <html>
@@ -51,8 +79,12 @@ $conn = new mysqli("localhost","root","", "myosdatabase")or die (mysqli_error())
 		<label></label> <input type="text" name="state" placeholder= "State"/><br />
 		<label></label> <input type="text" name="zip" placeholder= "Zip Code"/>
 	</fieldset>
-	<input type="submit" value="Register" onClick="return submit_form();" />
+	<input type="submit" value="Register" name= "submit" onClick="return submit_form();" />
 	</form>
+
+
+
+
 
 	<script type="text/javascript">
 		function submit_form(){
